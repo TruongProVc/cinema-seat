@@ -26,7 +26,23 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
       });
+   // Select all day buttons
+var dayButtons = document.querySelectorAll('.btnchange-day');
 
+dayButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        // Remove 'selected' class from all day buttons
+        dayButtons.forEach(function(btn) {
+            if (btn !== button) {
+                btn.classList.remove('selected');
+            }
+        });
+        // Toggle 'selected' class of the clicked day button
+        button.classList.toggle('selected');
+    });
+});
+
+  
   seats.forEach(function(seat, index) {
     seat.addEventListener('click', function() {
       if (!seat.classList.contains('sold')) {
